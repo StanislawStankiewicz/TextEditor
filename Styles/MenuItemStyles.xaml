@@ -3,13 +3,13 @@
 
     <SolidColorBrush x:Key="Menu.Static.Background" Color="#444444"/>
     <SolidColorBrush x:Key="Menu.Static.Border" Color="#FF999999"/>
-    <SolidColorBrush x:Key="Menu.Static.Foreground" Color="#eeeeee"/>
+    <SolidColorBrush x:Key="Menu.Static.Foreground" Color="#EEEEEE"/>
     <SolidColorBrush x:Key="Menu.Static.Separator" Color="#FFD7D7D7"/>
     <SolidColorBrush x:Key="Menu.Disabled.Foreground" Color="#FF707070"/>
-    <SolidColorBrush x:Key="MenuItem.Selected.Background" Color="#3D26A0DA"/>
+    <SolidColorBrush x:Key="MenuItem.Selected.Background" Color="#222222"/>
     <SolidColorBrush x:Key="MenuItem.Selected.Border" Color="#FF26A0DA"/>
-    <SolidColorBrush x:Key="MenuItem.Highlight.Background" Color="#3D26A0DA"/>
-    <SolidColorBrush x:Key="MenuItem.Highlight.Border" Color="#FF26A0DA"/>
+    <SolidColorBrush x:Key="MenuItem.Highlight.Background" Color="#222222"/>
+    <SolidColorBrush x:Key="MenuItem.Highlight.Border" Color="#FF999999"/>
     <SolidColorBrush x:Key="MenuItem.Highlight.Disabled.Background" Color="#0A000000"/>
     <SolidColorBrush x:Key="MenuItem.Highlight.Disabled.Border" Color="#21000000"/>
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter"/>
