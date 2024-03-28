@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Input;
 
@@ -11,11 +11,12 @@ namespace TextEditor
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string fileName;
+        private string? fileName;
 
         public MainWindow()
         {
             InitializeComponent();
+            UpdateTitle(); // Call this method to set the initial title
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -57,6 +58,7 @@ namespace TextEditor
                     fileName = openFileDialog.FileName;
                     string text = File.ReadAllText(fileName);
                     txtBox.Text = text;
+                    UpdateTitle(); // Call this method to update the title after opening a file
                 }
                 catch (Exception ex)
                 {
@@ -67,10 +69,7 @@ namespace TextEditor
 
         private void menuSave_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-
-            if (fileName != null)
+            if (!string.IsNullOrEmpty(fileName))
             {
                 try
                 {
@@ -96,12 +95,27 @@ namespace TextEditor
             {
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName, txtBox.Text);
+                    fileName = saveFileDialog.FileName;
+                    File.WriteAllText(fileName, txtBox.Text);
+                    UpdateTitle(); // Call this method to update the title after saving a file
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error saving the file: " + ex.Message);
                 }
+            }
+        }
+
+        private void UpdateTitle()
+        {
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                string filename = Path.GetFileName(fileName);
+                textBlockTitle.Text = filename + " - stahu's TextEditor";
+            }
+            else
+            {
+                textBlockTitle.Text = "Untitled - stahu's TextEditor";
             }
         }
     }

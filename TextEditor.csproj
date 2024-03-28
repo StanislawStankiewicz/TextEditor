@@ -16,4 +16,9 @@
     <Resource Include="View\TextEditorIcon.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
 </Project>
